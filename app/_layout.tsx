@@ -1,9 +1,8 @@
-import { ClassicStack as Stack } from '@/components/ClassicStack';
-import HeaderSearchBar from '@/components/HeaderSearchBar';
+// import { ClassicStack as Stack } from '@/components/ClassicStack';
 import { DarkTheme, DefaultTheme, ThemeProvider, getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
+import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
@@ -13,7 +12,6 @@ export default function RootLayout() {
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
-  const [isSearchExpanded, setIsSearchExpanded] = useState(false);
 
   if (!loaded) {
     // Async font loading only occurs in development.
@@ -43,10 +41,6 @@ export default function RootLayout() {
     console.log('Search submitted:', text);
   };
 
-  const handleSearchCancel = () => {
-    console.log('Search cancelled');
-  };
-
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
@@ -54,25 +48,19 @@ export default function RootLayout() {
           name="(tabs)"
           options={({ route }) => ({
             headerShown: true,
-            headerTitle: isSearchExpanded ? '' : getHeaderTitle(route),
-            headerRight: () => (
-              <HeaderSearchBar
-                placeholder="Search..."
-                onChangeText={handleSearchTextChange}
-                onSubmitEditing={handleSearchSubmit}
-                onSearchButtonPress={handleSearchSubmit}
-                onCancelButtonPress={handleSearchCancel}
-                onExpansionChange={setIsSearchExpanded}
-                tintColor="#8e8e93"
-              />
-            ),
+            headerTitle: getHeaderTitle(route),
+            headerSearchBarOptions: {
+              placeholder: 'Search...',
+              onChangeText: (event: any) => handleSearchTextChange(event.nativeEvent.text),
+              onSearchButtonPress: (event: any) => handleSearchSubmit(event.nativeEvent.text),
+            },
           })}
         />
         <Stack.Screen 
           name="pdf-viewer" 
           options={{ 
             headerShown: false
-          }} 
+          }}
         />
         <Stack.Screen name="+not-found" />
       </Stack>

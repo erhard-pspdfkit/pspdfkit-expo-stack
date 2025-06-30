@@ -49,6 +49,7 @@ class MainActivity : ReactActivity() {
     * where moving root activities to background instead of finishing activities.
     * @see <a href="https://developer.android.com/reference/android/app/Activity#onBackPressed()">onBackPressed</a>
     */
+  /*
   override fun invokeDefaultOnBackPressed() {
       if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.R) {
           if (!moveTaskToBack(false)) {
@@ -62,4 +63,5 @@ class MainActivity : ReactActivity() {
       // because it's doing more than [Activity.moveTaskToBack] in fact.
       super.invokeDefaultOnBackPressed()
   }
+  */
 }

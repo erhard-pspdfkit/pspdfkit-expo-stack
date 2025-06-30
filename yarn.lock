@@ -5529,10 +5529,9 @@ react-native-safe-area-context@5.4.0:
   resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-5.4.0.tgz#04b51940408c114f75628a12a93569d30c525454"
   integrity sha512-JaEThVyJcLhA+vU0NU8bZ0a1ih6GiF4faZ+ArZLqpYbL6j7R3caRqj+mE3lEtKCuHgwjLg3bCxLL1GPUJZVqUA==
 
-react-native-screens@~4.11.1:
+"react-native-screens@github:erhard-pspdfkit/react-native-screens#latest-nutrient":
   version "4.11.1"
-  resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-4.11.1.tgz#7d0f3d313d8ddc1e55437c5e038f15f8805dc991"
-  integrity sha512-F0zOzRVa3ptZfLpD0J8ROdo+y1fEPw+VBFq1MTY/iyDu08al7qFUO5hLMd+EYMda5VXGaTFCa8q7bOppUszhJw==
+  resolved "https://codeload.github.com/erhard-pspdfkit/react-native-screens/tar.gz/f05f44c9fb2dc0fc6b8016a20cc08c93bd7549f8"
   dependencies:
     react-freeze "^1.0.0"
     react-native-is-edge-to-edge "^1.1.7"
